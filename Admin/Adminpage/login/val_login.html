@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title Manager">Admin Login</div>
+        </div>
+        <div class="form-container">
+            <div class="form-inner">
+                <form action="#" method="post" class="Manager" onsubmit="return validate()">
+                    <div class="field">
+                        <input type="text" id="aid"placeholder="Admin-ID" name="adminid" pattern="A.+[0-9]" title="Admin ID must start with A" value="" required class="italic" /><span class="error">
+                    </div>
+                    <div class="field">
+                        <input type="text" id="cid" placeholder="Company-Name" name="companyname"  value="" required class="italic"/> <span class="error">                       
+                    </div>
+                    <div class="field">
+                        <input type="password" id="pass" placeholder="Password" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="" title="Must contain at least 8 or more Characters with atleast one number and one uppercase and lowercase letter"
+                         autocomplete="newpass" required class="italic"/> 
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer">
+                        </div>
+                        <input type="submit" value="Login">
+                    </div>
+                    <a href="fp.html">Forgot Password</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validate(){
+            var  adminid=document.getElementById("aid").value;
+            var  companyname=document.getElementById("cid").value;
+            var  pass=document.getElementById("pass").value;
+
+            if(aid=="")
+            {
+                document.getElementById("aid").innerHtml="*Please enter the Admin ID";
+                return false;
+            }
+            
+            if(cid=="")
+            {
+                document.getElementById("cid").innerHtml="*please enter the company name";
+                return false;
+            }
+
+            if(pass=="")
+            {
+                document.getElementById("pass").innerHtml="*please enter your password";
+                return false;
+            }
+            if(pass.length<=8){
+                document.getElementById("pass").innerHtml="*Must contain at least 8 or more character";
+                return false;
+            }
+            else {    
+            return true;
+            }
+        }
+        const ManagerForm = document.querySelector("form.Manager");
+        const EmployeeForm = document.querySelector("form.Employee");
+
+        const Managerbtn = document.querySelector("label.Manager");
+        const Employeebtn = document.querySelector("label.Employee");
+
+        Managerbtn.onclick = (() => {
+            EmployeeForm.style.marginLeft = "0%";
+        });
+        Employeebtn.onclick = (() => {
+            EmployeeForm.style.marginLeft = "-50%";
+        });
+    </script>
+</body>
+</html>

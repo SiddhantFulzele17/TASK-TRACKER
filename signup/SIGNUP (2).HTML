@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title Manager">SignUp</div>
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slide" id="Manager" checked>
+                <input type="radio" name="slide" id="Employee">
+                <label for="Manager" class="slide Manager">Manager</label>
+                <label for="Employee" class="slide Employee">Employee</label>
+                <div class="slider-tab"> </div>
+            </div>
+
+            <div class="form-inner">
+                <form action="#" method="post" class="Manager" onsubmit="return validate()">
+                    <div class="field">
+                        <input class="password" type="number" id="mid" min="1" max="99" placeholder="Manager-ID" name="managerid" value="" required class="italic" /><span class="error">
+                    
+                    </div>
+                    <div class="field">
+                        <input class="confirmpass" type="text" id="cid" placeholder="Company-Name" name="companyname"  value="" required class="italic"/> <span class="error">                       
+                    </div>
+
+                    <div class="field">
+                        <input type="email" id="email" placeholder="E-mail" name="email"  value="" required class="italic"/> <span class="error">                       
+                    </div>
+
+                    <div class="field">
+                        <input type="password" id="pass" placeholder="Password" name="pass"  value="" title="Must contain at least 8 or more Characters"
+                         autocomplete="newpass" required class="italic"/> 
+                         
+                     
+                    </div>
+                    <div class="field">
+                        <input type="password" id="confirmpass" placeholder="Confirm-Password" name="confirmpass" value="" autocomplete="newpass" required class="italic"/><span class="error">
+        
+                    </div>
+
+                    <div class="field btn">
+                        <div class="btn-layer">
+                        </div>
+                        <input type="submit" value="SignUp">
+                    </div>
+                </form>
+
+                <form action="#" method="post" class="Employee">
+                    <div class="field">
+                        <input type="number" id="empid" min="100" max="99999" placeholder="Employee-ID" name="employeeid" value="" required class="italic"/> <span class="error">
+                    
+                    </div>
+                    <div class="field">
+                        <input type="text" id="comid" placeholder="Company-Name"  name="companyyname" value="" required class="italic"/> <span class="error">
+                
+                    </div>
+                    
+                    <div class="field">
+                        <input type="email" id="emailid" placeholder="E-mail" name="emailid"  value="" required class="italic"/> <span class="error">                       
+                    </div>
+
+                    <div class="field">
+                        <input type="password" id="passw" placeholder="Password" name="password" value="" title="Must contain at least 8 or more Characters"
+                        autocomplete="newpassword" required class="italic"/>
+                        <span class="error"> 
+                    </div>
+                    <div class="field">
+                        <input type="password" id="cpassw" placeholder="Confirm-Password" name="confirmpassword"  value="" autocomplete="newpassword" required class="italic"/>
+                        <span class="error">
+                    </div>
+                    
+                    <div class="field btn">
+                        <div class="btn-layer">
+                        </div>
+                        <input class="submit" type="submit" value="SignUp">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+    document.querySelector('.submit').onclick=function(){
+        var password=document.querySelector('.pass'),
+          confirmpass=document.querySelector('.confirmpass');
+
+          if (password!=confirmpass) {
+            alert("fvdgbhjmk");
+            return false;
+          }
+    }
+</script>
+    <script>
+        function validate(){
+            var  managerid=document.getElementById("mid").value;
+            var  companyname=document.getElementById("cid").value;
+            var  email=document.getElementById("email").value;
+            var  pass=document.getElementById("pass").value;
+            var  confirmedpass=document.getElementById("cpass").value;
+
+            var  employeeid=document.getElementById("empid").value;
+            var  companyyname=document.getElementById("comid").value;
+            var  emailid=document.getElementById("emailid").value;
+            var  pass=document.getElementById("passw").value;
+            var  confirmedpass=document.getElementById("cpassw").value;
+
+
+            
+            if((mid.length<=1)||(mid.length>99))
+            {
+                document.getElementById("mid").innerHtml="*id must be between 1 to 99";
+                return false;
+            }
+            else if(cid=="")
+            {
+                document.getElementById("cid").innerHtml="*please enter the company name";
+                return false;
+            }
+            else if(email=="")
+            {
+                document.getElementById("mail").innerHTML="**Please enter your email id";
+                return false;
+            }
+            else if(email.indexOf('@')<=0){
+            document.getElementById("mail").innerHTML="**invalid position of @";
+            return false;
+            }
+            else if(pass=="")
+            {
+                document.getElementById("pass").innerHtml="*please enter your password";
+                return false;
+            }
+            else if(pass.length<=8){
+                document.getElementById("pass").innerHtml="*Must contain at least 8 or more character";
+                return false;
+
+
+            }
+            else if(pass!=cpass)
+            {
+                document.getElementById("cpass").innerHtml="*password and confirmed password shoulld be matched";
+                return false;
+
+
+            }return true;
+            
+            if((empid.length<=100)||(empid.length>9999))
+            {
+                document.getElementById("empid").innerHtml="*id must be between 100 to 99999";
+                return false;
+            }
+            
+            if(comid=="")
+            {
+                document.getElementById("comid").innerHtml="*please enter the company name";
+                return false;
+            }
+            
+            if(emailid=="")
+            {
+                document.getElementById("mailid").innerHTML="**Please enter your email id";
+                return false;
+            }
+
+            if(emailid.indexOf('@')<=0){
+            document.getElementById("mailid").innerHTML="**invalid position of @";
+            return false;
+            }
+
+            if(passw=="")
+            {
+                document.getElementById("passw").innerHtml="*please enter your password";
+                return false;
+            }
+            if(passw.length<=8){
+                document.getElementById("passw").innerHtml="*Must contain at least 8 or more character";
+                return false;
+
+
+            }
+            if(passw!=cpassw)
+            {
+                document.getElementById("cpassw").innerHtml="*password and confirmed password shoulld be matched";
+                return false;
+            }
+            else{
+                return true;
+            }
+            
+        }
+        const ManagerForm = document.querySelector("form.Manager");
+        const EmployeeForm = document.querySelector("form.Employee");
+
+        const Managerbtn = document.querySelector("label.Manager");
+        const Employeebtn = document.querySelector("label.Employee");
+
+        Managerbtn.onclick = (() => {
+            EmployeeForm.style.marginLeft = "0%";
+        });
+        Employeebtn.onclick = (() => {
+            EmployeeForm.style.marginLeft = "-50%";
+        });
+    </script>
+</body>
+</html>

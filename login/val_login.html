@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title Manager">Login</div>
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slide" id="Manager" checked>
+                <input type="radio" name="slide" id="Employee">
+                <label for="Manager" class="slide Manager">Manager</label>
+                <label for="Employee" class="slide Employee">Employee</label>
+                <div class="slider-tab"> </div>
+            </div>
+
+            <div class="form-inner">
+                <form action="#" method="post" name="myform" class="Manager" onsubmit="return validate()">
+                    <div class="field">
+                      
+                        <input type="number" style="color:black" id="mid" min="100" max="99999" placeholder="Manager-ID" name="mid" value="" required class="italic"/> 
+                    
+                    </div>
+                    <div class="field">
+                        <input type="text" style="color:black" id="cid" placeholder="Company-Name" name="companyname"  value="" required class="italic"/> <span class="error">                       
+                    </div>
+
+                    <div class="field">
+                        <input type="password" style="color:black" id="pass" placeholder="Password" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   value="" title="Must contain at least 8 or more Characters"
+                         autocomplete="newpass" required class="italic"/> 
+                         
+                     
+                    </div>
+                 
+                    <div class="field btn">
+                        <div class="btn-layer">
+                        </div>
+                        <input type="submit" value="Login">
+                    </div>
+                    <div class="fpbtn"><a href="C:\Users\Dell\Downloads\pages\fp.html">Forget Password</a></div>
+                </form>
+
+                <form action="#" name="myform" method="post" class="Employee" onsubmit="return validate()">
+                    <div class="field">
+                        <input type="number" style="color:black" id="empid" min="100" max="99999" placeholder="Employee-ID" name="num1" value="" required class="italic"/> <span class="error">
+                    
+                    </div>
+                    <div class="field">
+                        <input type="text" style="color:black" id="comid" placeholder="Company-Name"  name="companyyname" value="" required class="italic"/> <span class="error">
+                
+                    </div>
+                    
+                    <div class="field">
+                        <input type="password" style="color:black" id="passw" placeholder="Password" name="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least 8 or more Characters"
+                        autocomplete="newpassword" required class="italic"/>
+                        <span class="error"> 
+                    </div>
+          
+                    <div class="field btn">
+                        <div class="btn-layer">
+                        </div>
+                        <input type="submit" value="Login">
+                    </div>
+                    <a href="C:\Users\Dell\Downloads\pages\fp.html">Forget Password</a>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+                        var numb=document.forms['myform']['num'];
+                        var numb1=document.forms['myform']['num1']
+                        function validate()
+                        {
+                            if(numb.value>=99)
+                            {
+                                alert("Manager Id Should be less then 99");
+                                return false;
+                            }
+                            else if(numb1.value<99)
+                            {
+                                alert("Employee Id Should be greater then 99");
+                                return false;
+                            }
+                            else if(numb1.value>10000)
+                            {
+                                alert("Employee Id Should be less then 10000");
+                                return false;
+                            }
+                            return true;
+                        }
+                    </script>
+    <script>
+        function validate(){
+            var  managerid=document.getElementById("mid").value;
+            var  companyname=document.getElementById("cid").value;
+            var  pass=document.getElementById("pass").value;
+
+            var  employeeid=document.getElementById("empid").value;
+            var  companyyname=document.getElementById("comid").value;
+            var  pass=document.getElementById("passw").value;
+          
+            if((mid.length<=1)||(mid.length>99))
+            {
+                document.getElementById("mid").innerHtml="*id must be between 1 to 99";
+                return false;
+            }
+            
+            if(cid=="")
+            {
+                document.getElementById("cid").innerHtml="*please enter the company name";
+                return false;
+            }
+
+            if(pass=="")
+            {
+                document.getElementById("pass").innerHtml="*please enter your password";
+                return false;
+            }
+            if(pass.length<=8){
+                document.getElementById("pass").innerHtml="*Must contain at least 8 or more character";
+                return false;
+
+
+            }
+
+            else {    
+            return true;
+            }
+            
+            if((empid.length<=100)||(empid.length>9999))
+            {
+                document.getElementById("empid").innerHtml="*id must be between 100 to 99999";
+                return false;
+            }
+            
+            if(comid=="")
+            {
+                document.getElementById("comid").innerHtml="*please enter the company name";
+                return false;
+            }
+            
+
+            if(passw=="")
+            {
+                document.getElementById("passw").innerHtml="*please enter your password";
+                return false;
+            }
+            if(passw.length<=8){
+                document.getElementById("passw").innerHtml="*Must contain at least 8 or more character";
+                return false;
+
+
+            }
+            else{
+                return true;
+            }
+            
+        }
+        const ManagerForm = document.querySelector("form.Manager");
+        const EmployeeForm = document.querySelector("form.Employee");
+
+        const Managerbtn = document.querySelector("label.Manager");
+        const Employeebtn = document.querySelector("label.Employee");
+
+        Managerbtn.onclick = (() => {
+            EmployeeForm.style.marginLeft = "0%";
+        });
+        Employeebtn.onclick = (() => {
+            EmployeeForm.style.marginLeft = "-50%";
+        });
+    </script>
+</body>
+</html>
